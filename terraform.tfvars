@@ -1,0 +1,75 @@
+// AWS Environment -- Remove the # to before configure a value to it. 
+// If you dont provide any value, it will take the default value 
+
+############################################################
+#AWS Creditials to access the AWS Cloud
+#############################################################
+aws_access_key      = "AKIA5JWVF6G1234IW6"
+
+aws_secret_key      = "aIOwv7F23moH5Rqul8L4zECNbba6pCgXxvfx1234"
+
+############################################################
+#Define New VPC in a specific Region and Avilability Zone 
+#############################################################
+vpc_name            = "FTD-Service-VPC"
+
+region              = "us-east-1"
+
+aws_az              = "us-east-1a"
+
+FTD_version         = "ftdv-7.7.0-89-ENA"
+
+FMC_version         = "fmcv300-7.7.0-91"
+
+##################################################################################
+#Define CIDR, five Subnets. Two for managment and three for Inside, Outisde and DMZ 
+###################################################################################
+vpc_cidr           =  "172.16.0.0/16"
+
+mgmt_subnet        =  "172.16.0.0/24"
+
+diag_subnet       =  "172.16.1.0/24"
+
+outside_subnet     =  "172.16.2.0/24"
+
+inside_subnet      =  "172.16.3.0/24"
+
+dmz_subnet         =  "172.16.4.0/24"
+
+#key_name             = "nedz-key-ohio"  
+#key_name             = "nedz-oregon-key"
+key_name             = "nedz-keypair-nvirginia"
+# Generate the key if you want to login thru the certifcation key
+
+###########################################################################################
+#Define the Instance size for FTD and FMC and attache the interfaces and Day0 Configuration
+###########################################################################################
+//FTD Interfaces IP address Configurations 
+//Download the ftd_startup_file and fmc_startup_file to define the hostname, passowrd and managger  Configurations 
+
+#Remove the # before using it
+
+ftd_size            =  "c5.4xlarge"
+
+//Please refer NGFWv datasheet for the supported size 
+//https://www.cisco.com/c/en/us/products/collateral/security/firepower-ngfw-virtual/datasheet-c78-742858.html
+
+#fmc_size            =   "c5.4xlarge"
+fmc_size            =   "c5.9xlarge"
+//Please refer FMCv datasheet for the supported size 
+//https://www.cisco.com/c/en/us/products/collateral/security/firesight-management-center/datasheet-c78-736775.html
+
+ftd01_mgmt_ip       =  "172.16.0.10" 
+//FTD and FMC mgmt should be in the same subnet
+
+fmc_mgmt_ip        =   "172.16.0.50"
+//FTD and FMC mgmt should be in the same subnet
+
+ftd01_outside_ip    =   "172.16.2.10"
+ 
+ftd01_inside_ip     =  "172.16.3.10"
+
+ftd01_dmz_ip        =  "172.16.4.10"
+
+#To configured the optional nat id while adding the manager
+fmc_nat_id          =  ""
